@@ -2,7 +2,8 @@
 
 ## DESCRIPCIÓN
 
-En mi proyercto voy a intentar recrear un clasico de los 80 que todos conocéis llamado Arcanoid. Todo un reto para un desarrollador noob ;).
+En mi proyercto voy a intentar recrear un clasico de los 80 que todos conocéis llamado Arcanoid. 
+Todo un reto para un desarrollador noob ;).
 
 ## MVP - Tecnología (DOM - CANVAS)
 
@@ -55,6 +56,8 @@ GAME:
         - this.y
         - this.size
         - this.velocity
+        - this.canvas
+        - this.ctx
         - speed()
         - checkColision()
         - draw()
@@ -66,6 +69,8 @@ GAME:
         - this.velocity
         - speed()
         - colision()
+        - this.canvas
+        - this.ctx
         - this.x
         - this.y
         - this.size
@@ -78,6 +83,8 @@ GAME:
         - colsion()
         - this.x
         - this.y
+        - this.canvas
+        - this.ctx
         - this.size
         - draw ()
         - update()
