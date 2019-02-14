@@ -11,6 +11,16 @@ Para este proyecto voy a utilizar tecnología Canvas.
 
 ## BACKLOG
 
+- Añadir name
+
+- Añadir time
+
+- Añadir poderes
+
+- Separar pantalla YOU WIN de YOU LOSE
+
+-
+
 
 
 ## ESTRUCTURAS DE DATOS
@@ -33,6 +43,7 @@ GAME:
         - update ()
         - draw ()
         - this.ball
+        - clear ()
         
      
      player.js:
@@ -46,6 +57,7 @@ GAME:
         - checkColision()
         - draw()
         - update()
+        - clear()
       
       
      ball.js:
@@ -57,6 +69,7 @@ GAME:
         - this.size
         - draw ()
         - update ()
+        - clear ()
         
         
      bloque.js:
@@ -66,28 +79,72 @@ GAME:
         - this.size
         - draw ()
         - update()
+        - clear ()
        
        
-## States y States Transitions
+## STATES Y STATES TRANSITION
 
-Definicion del las transiciones del juego y del main.
 
-- splashScreen
-- gameScreen
-- gameoverScreen
-- winScreen
+splashScreen => gameScreen => gameOverScreen => gameScreen
 
-funciones de transicion.
+
+FUNCIONES DE TRANSICION
 
 ## Task
 
-Definicion de las tareas por orden de prioridad
+- Crear Archivos main.js, game.js, player.js, ball.js, bloque.js    
 
-## Links
+- Crear las transiciones entre pantallas (Splash, Game y Game Over)   
+
+- Crear el loop para las transiciones. (build(), buildSplashScreen(), buildGameOverScreen())  
+
+- Crear Class game.js y declarar todas sus funciones   
+
+- Crear Class Player (player.js)
+
+      -  Dibujar rectangulo
+
+      -  Añadir Velocidad
+      
+      -  Añadir posicion
+      
+      -  Añadir colision
+      
+      -  Update and  clear
+
+- Crear Class Ball (ball.js)
+
+     -  Dibujar esfera
+
+     -  Añadir Velocidad esfera
+      
+     -  Añadir posicion esfera
+      
+     -  Añadir colision esfera
+      
+     -  Update and clear
+
+
+- Crear Class bloque (bloque.js)
+
+     - Dibujar bloque
+     
+     - Añadir posicion
+     
+     - Añadir colision
+     
+     - Update and clear
+
+
+
+
+## LINKS
 
 ### Trello
 
 [Link url](https://trello.com)
+
+
 
 ### Git
 
@@ -97,11 +154,16 @@ Especificar las url del proyecto y del deploy
 
 [Link Deploy](http://github.com)
 
+
+
 ### Slides.com
 
 Especificar la url de la presentacion
 
 [Link Slides.com](http://slides.com)
+
+
+
 
 ## Instrucciones del juego 
 
