@@ -11,6 +11,8 @@ Para este proyecto voy a utilizar tecnología Canvas.
 
 ## BACKLOG
 
+- Añadir imagenes
+
 - Añadir name
 
 - Añadir time
@@ -19,7 +21,7 @@ Para este proyecto voy a utilizar tecnología Canvas.
 
 - Separar pantalla YOU WIN de YOU LOSE
 
--
+
 
 
 
@@ -134,6 +136,8 @@ FUNCIONES DE TRANSICION
      - Añadir colision
      
      - Update and clear
+     
+
 
 
 
