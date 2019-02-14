@@ -100,7 +100,19 @@ FUNCIONES DE TRANSICION
 
 - Crear el loop para las transiciones. (build(), buildSplashScreen(), buildGameOverScreen())  
 
-- Crear Class game.js y declarar todas sus funciones   
+- Crear Class game.js y declarar todas sus funciones
+      
+      - Funcion para empezar loop
+      
+      - This.player
+      
+      - Dibujar escenario
+      
+      - Update and clear
+      
+      - Desclara funcion OnGameOver()
+      
+      
 
 - Crear Class Player (player.js)
 
@@ -113,6 +125,7 @@ FUNCIONES DE TRANSICION
       -  Añadir colision
       
       -  Update and  clear
+      
 
 - Crear Class Ball (ball.js)
 
