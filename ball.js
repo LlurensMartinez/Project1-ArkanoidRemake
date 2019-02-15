@@ -33,7 +33,7 @@ class Ball {
 
     }
 
-    colision() {
+    colisionBall() {
 
         // Colision con Paredes
 
@@ -41,10 +41,10 @@ class Ball {
         this.drawBall();
         this.x += this.velocityX;
         this.y += this.velocityY;
-        if (this.y + this.velocityY > this.canvas.height - 20 || this.y + this.velocityY < 0) {
+        if (this.y + this.velocityY > this.canvas.height - 15 || this.y + this.velocityY < 15) {
             this.velocityY *= -1;
         }
-        if (this.x + this.velocityX > this.canvas.width || this.x + this.velocityX < 0) {
+        if (this.x + this.velocityX > this.canvas.width - 15 || this.x + this.velocityX < 15) {
             this.velocityX *= -1;
         }
     }
