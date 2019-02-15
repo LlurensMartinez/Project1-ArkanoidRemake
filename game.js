@@ -2,23 +2,32 @@ class Game {
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
+        // Class player
         this.player;
-        this.ball = ball;
+        // Clas ball
+        this.ball;
+        // Class bloque
         this.bloque = [];
+        // Game over
         this.isGameOver = false;
     }
 
     startLoop() {
-        //console.log("out of loop");
+        //console.log("ha llamado loop");
+
+        // Crear Bola
+        this.ball = new Ball(this.canvas);
+
 
         const loop = () => {
+            //console.log(this.ball.y);
             // Mirar las colisiones
-            this.checkAllCollisions();
+            //this.checkAllCollisions();
             // Ir actualizando Canvas
             this.updateCanvas();
             // Ir refrescando Canvas
-            this.clearCanvas();
-            // Ir dibujando canvas
+            //this.clearCanvas();
+            // Llamar a drawCanvas
             this.drawCanvas();
 
             if (!this.isGameOver) {
@@ -29,17 +38,21 @@ class Game {
         window.requestAnimationFrame(loop);
     };
 
-    onGameOver() {
 
+    updateCanvas() {
+        this.ball.speed();
+        this.ball.updateBall();
+        this.ball.colision();
+    }
+
+    drawCanvas() {
+        // dibujas en el juego
+        this.ball.drawBall();
 
     }
 
-    update() {
-
-    }
-
-    draw() {
-
+    gameOverCallBack(callback) {
+        this.onGameOver = callback;
     }
 
 };

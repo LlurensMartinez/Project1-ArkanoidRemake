@@ -16,7 +16,7 @@ const main = () => {
 
     // Creamos SPLASH y escribimos el contenido en el main
     const buildSplashScreen = () => {
-        const spalshScreen = buildDom(`
+        const splashScreen = buildDom(`
    <section class="splash-screen"></section>
    <h1>Bienvenido al Juego</h1>
    <button>Start</button>
@@ -43,6 +43,8 @@ const main = () => {
         const width = document.querySelector('.game-screen').offsetWidth;
         const height = document.querySelector('.game-screen').offsetHeight;
 
+        // Cuadrado canvas
+
         const canvasElement = document.querySelector('canvas');
         canvasElement.setAttribute('width', width);
         canvasElement.setAttribute('height', height);
@@ -50,8 +52,9 @@ const main = () => {
 
         //setTimeout(buildGameOver, 3000);
 
-        //const game = new Game(canvasElement);
-        //game.gameOverCallBack(buildGameOver);
+        // New Game
+        const game = new Game(canvasElement);
+        game.gameOverCallBack(buildGameOver);
 
 
         game.startLoop();
