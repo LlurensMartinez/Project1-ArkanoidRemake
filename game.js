@@ -8,4 +8,38 @@ class Game {
         this.isGameOver = false;
     }
 
+    startLoop() {
+        //console.log("out of loop");
+
+        const loop = () => {
+            // Mirar las colisiones
+            this.checkAllCollisions();
+            // Ir actualizando Canvas
+            this.updateCanvas();
+            // Ir refrescando Canvas
+            this.clearCanvas();
+            // Ir dibujando canvas
+            this.drawCanvas();
+
+            if (!this.isGameOver) {
+                window.requestAnimationFrame(loop);
+            }
+
+        }
+        window.requestAnimationFrame(loop);
+    };
+
+    onGameOver() {
+
+
+    }
+
+    update() {
+
+    }
+
+    draw() {
+
+    }
+
 };

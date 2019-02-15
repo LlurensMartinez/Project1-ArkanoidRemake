@@ -48,13 +48,13 @@ const main = () => {
         canvasElement.setAttribute('height', height);
 
 
-        setTimeout(buildGameOver, 3000);
+        //setTimeout(buildGameOver, 3000);
 
         //const game = new Game(canvasElement);
         //game.gameOverCallBack(buildGameOver);
 
 
-        //game.startLoop();
+        game.startLoop();
 
 
     };
