@@ -59,7 +59,17 @@ const main = () => {
 
         game.startLoop();
 
+        const setPlayerDirection = (event) => {
+            if (event.code === 'ArrowLeft') {
+                game.player.setDirection(-1);
+            } else if (event.code === 'ArrowRigth') {
+                game.player.setDirection(1);
+            };
+        };
 
+        // Al pulsar ka tecla
+        document.addEventListener('keydown', setPlayerDirection);
+        document.addEventListener("keyup", setPlayerDirection);
     };
 
     const buildGameOver = () => {

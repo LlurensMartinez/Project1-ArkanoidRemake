@@ -29,7 +29,7 @@ class Ball {
 
     updateBall() {
 
-        this.ctx.clearRect(0, 0, this.x, this.y);
+
 
     }
 

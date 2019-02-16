@@ -18,6 +18,7 @@ class Game {
         // Crear Bola
         this.ball = new Ball(this.canvas);
         this.player = new Player(this.canvas);
+        this.bloque = new Bloque(this.canvas);
 
 
         const loop = () => {
@@ -27,7 +28,7 @@ class Game {
             // Ir actualizando Canvas
             this.updateCanvas();
             // Ir refrescando Canvas
-            //this.clearCanvas();
+            this.clearCanvas();
             // Llamar a drawCanvas
             this.drawCanvas();
 
@@ -42,19 +43,27 @@ class Game {
 
     updateCanvas() {
         this.ball.speed();
-        this.ball.updateBall();
+        //this.ball.updateBall();
         this.ball.colisionBall();
 
         this.player.speedPlayer();
-        this.player.updatePlayer();
+        //this.player.updatePlayer();
         this.player.colisionPlayer();
+        this.player.setDirection();
 
+
+
+    }
+
+    clearCanvas() {
+        this.ctx.clearRect(0, 0, this.x, this.y);
     }
 
     drawCanvas() {
         // dibujas en el juego
         this.ball.drawBall();
         this.player.drawPlayer();
+        this.bloque.drawBloque();
     }
 
     gameOverCallBack(callback) {
