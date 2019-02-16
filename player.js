@@ -1,7 +1,7 @@
 class Player {
     constructor(canvas) {
         this.x = 200;
-        this.y = 450;
+        this.y = 520;
         this.sizeX = 100;
         this.sizeY = 20;
         this.canvas = canvas;
@@ -21,12 +21,13 @@ class Player {
         this.direction = direction;
     }
 
-
-    speedPlayer() {
-
-
-
-    }
+    checkScreen() {
+        if (this.x - this.sizeX / 2 <= 0) {
+            this.direction = 1
+        } else if (this.x + this.sizeX / 2 >= this.canvas.weight) {
+            this.direction = -1;
+        };
+    };
 
 
 

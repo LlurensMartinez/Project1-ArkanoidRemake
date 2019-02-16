@@ -59,17 +59,35 @@ const main = () => {
 
         game.startLoop();
 
-        const setPlayerDirection = (event) => {
-            if (event.code === 'ArrowLeft') {
-                game.player.setDirection(-1);
-            } else if (event.code === 'ArrowRigth') {
-                game.player.setDirection(1);
-            };
-        };
+        // movimiento del Bloque con teclas
 
-        // Al pulsar ka tecla
-        document.addEventListener('keydown', setPlayerDirection);
-        document.addEventListener("keyup", setPlayerDirection);
+        let rightPressed = false;
+        let leftPressed = false;
+
+        document.addEventListener("keydown", keyDownHandler, false);
+        document.addEventListener("keyup", keyUpHandler, false);
+
+        function keyDownHandler(event) {
+            if (event.keyCode == 39) {
+                rightPressed = true;
+            } else if (event.keyCode == 37) {
+                leftPressed = true;
+            }
+        }
+
+        function keyUpHandler(event) {
+            if (event.keyCode == 39) {
+                rightPressed = false;
+            } else if (event.keyCode == 37) {
+                leftPressed = false;
+            }
+        }
+
+        if (rightPressed) {
+            game.player.updatePlayer(+1);
+        } else if (leftPressed) {
+            game.player.updatePlayer(-1);
+        }
     };
 
     const buildGameOver = () => {

@@ -8,6 +8,8 @@ class Game {
         this.ball;
         // Class bloque
         this.bloque = [];
+
+
         // Game over
         this.isGameOver = false;
     }
@@ -18,13 +20,26 @@ class Game {
         // Crear Bola
         this.ball = new Ball(this.canvas);
         this.player = new Player(this.canvas);
-        this.bloque = new Bloque(this.canvas);
+
+        let colors = ["red", "yellow", "blue"];
+        let rows = 4;
+        let cols = 5;
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                this.bloque.push(new Bloque2(
+                    this.canvas,
+                    75 + 105 * col,
+                    50 + 40 * row,
+                    colors[col % colors.length]
+                ));
+            }
+        }
 
 
         const loop = () => {
             //console.log(this.ball.y);
             // Mirar las colisiones
-            //this.checkAllCollisions();
+            this.checkAllCollisions();
             // Ir actualizando Canvas
             this.updateCanvas();
             // Ir refrescando Canvas
@@ -46,8 +61,8 @@ class Game {
         //this.ball.updateBall();
         this.ball.colisionBall();
 
-        this.player.speedPlayer();
-        //this.player.updatePlayer();
+        //this.player.speedPlayer();
+        // NO FUNCIONA this.player.updatePlayer();
         this.player.colisionPlayer();
         this.player.setDirection();
 
@@ -63,11 +78,35 @@ class Game {
         // dibujas en el juego
         this.ball.drawBall();
         this.player.drawPlayer();
-        this.bloque.drawBloque();
+        for (let block = 0; block < this.bloque.length; block++) {
+            this.bloque[block].draw();
+        }
+
+
+        /* this.bloque.drawBloque();
+         this.bloque.drawBloque2();
+         this.bloque.drawBloque3();
+         this.bloque.drawBloque4();
+         this.bloque.drawBloque5();
+         */
     }
 
     gameOverCallBack(callback) {
         this.onGameOver = callback;
     }
 
-};
+    checkAllCollisions() {
+        this.player.checkScreen();
+        this.bloque.forEach((bloque) => {
+            let collision = bloque.checkCollision(this.ball);
+            if (collision != 0) {
+                // marcar para eliminar el bloque del array this.bloque
+
+                // cambiar la direccion de la pelota en base al tipo de colision: L, R, U o D
+            }
+        });
+        // si hay algun bloque marcado para eliminar, eliminarlos del this.bloque
+
+    }
+
+}
