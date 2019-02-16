@@ -1,7 +1,7 @@
 class Ball {
     constructor(canvas) {
-        this.x = 100;
-        this.y = 100;
+        this.x = 150;
+        this.y = 300;
         this.radius = 15;
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
@@ -31,6 +31,14 @@ class Ball {
 
 
 
+    }
+
+    changeDirection(collisionType) {
+        if (collisionType === 1) {
+            this.velocityX *= -1;
+        } else {
+            this.velocityY *= -1;
+        }
     }
 
     colisionBall() {

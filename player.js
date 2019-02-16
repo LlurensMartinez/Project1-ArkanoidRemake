@@ -12,6 +12,13 @@ class Player {
     }
 
     drawPlayer() {
+        this.x = this.x + 10 * this.direction;
+        if (this.x < 0) {
+            this.x = 0;
+        }
+        if (this.x + this.sizeX > this.canvas.width) {
+            this.x = this.canvas.width - this.sizeX;
+        }
         this.ctx.fillStyle = 'red';
         this.ctx.fillRect(this.x, this.y, this.sizeX, this.sizeY);
 
@@ -29,7 +36,28 @@ class Player {
         };
     };
 
+    rightPressed() {
+        //if (this.direction === 0) {
+        this.direction = 1;
+        //}
 
+    }
+
+    leftPressed() {
+        //if (this.direction === 0) {
+        this.direction = -1;
+        //}
+    }
+
+    cancelRightPressed() {
+        this.direction = 0;
+    }
+
+    cancelLeftPressed() {
+        //if (this.direction === -1) {
+        this.direction = 0;
+        //}
+    }
 
     updatePlayer() {
 

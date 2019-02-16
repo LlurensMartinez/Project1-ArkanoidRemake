@@ -22,14 +22,14 @@ class Game {
         this.player = new Player(this.canvas);
 
         let colors = ["red", "yellow", "blue"];
-        let rows = 4;
+        let rows = 8;
         let cols = 5;
         for (let row = 0; row < rows; row++) {
             for (let col = 0; col < cols; col++) {
                 this.bloque.push(new Bloque2(
                     this.canvas,
                     75 + 105 * col,
-                    50 + 40 * row,
+                    50 + 25 * row,
                     colors[col % colors.length]
                 ));
             }
@@ -63,8 +63,8 @@ class Game {
 
         //this.player.speedPlayer();
         // NO FUNCIONA this.player.updatePlayer();
-        this.player.colisionPlayer();
-        this.player.setDirection();
+        //this.player.colisionPlayer();
+        //this.player.setDirection();
 
 
 
@@ -96,14 +96,23 @@ class Game {
     }
 
     checkAllCollisions() {
-        this.player.checkScreen();
-        this.bloque.forEach((bloque) => {
+        //this.player.checkScreen();
+        let blocksToRemove = [];
+        this.bloque.forEach((bloque, index) => {
             let collision = bloque.checkCollision(this.ball);
             if (collision != 0) {
                 // marcar para eliminar el bloque del array this.bloque
-
-                // cambiar la direccion de la pelota en base al tipo de colision: L, R, U o D
+                //console.log(collision);
+                blocksToRemove.push(index);
+                // cambiar la direccion de la pelota en base al tipo de colision
+                this.ball.changeDirection(collision);
             }
+        });
+
+        let blocksRemoved = 0;
+        blocksToRemove.forEach((blockToRemove) => {
+            this.bloque.splice(blockToRemove - blocksRemoved, 1);
+            blocksRemoved++;
         });
         // si hay algun bloque marcado para eliminar, eliminarlos del this.bloque
 

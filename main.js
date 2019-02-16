@@ -69,17 +69,17 @@ const main = () => {
 
         function keyDownHandler(event) {
             if (event.keyCode == 39) {
-                rightPressed = true;
+                game.player.rightPressed();
             } else if (event.keyCode == 37) {
-                leftPressed = true;
+                game.player.leftPressed();
             }
         }
 
         function keyUpHandler(event) {
             if (event.keyCode == 39) {
-                rightPressed = false;
+                game.player.cancelRightPressed();
             } else if (event.keyCode == 37) {
-                leftPressed = false;
+                game.player.cancelLeftPressed();
             }
         }
 

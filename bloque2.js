@@ -1,3 +1,5 @@
+'use strict'
+
 class Bloque2 {
     constructor(canvas, x, y, color) {
         this.x = x;
@@ -20,14 +22,46 @@ class Bloque2 {
 
     }
 
+    getAbsoluteDistance(blockPostion, ballPosition) {
+        let distance = blockPostion - ballPosition;
+        if (distance < 0) {
+            distance = distance * -1;
+        }
+        return distance;
+    }
+
     checkCollision(ball) {
 
-        if (ball.x >= this.x && ball.x <= this.xMax) {
-            console.log('posible colision vertical');
+        if (ball.x + ball.radius >= this.x && ball.x - ball.radius <= this.xMax) {
+
+            if (ball.y + ball.radius >= this.y && ball.y - ball.radius <= this.yMax) {
+                // console.log('posible colision vertical');
+                let typeOfCollision = 1;
+                let minDistance = this.getAbsoluteDistance(this.x, ball.x + ball.radius);
+
+                let currentDistance = this.getAbsoluteDistance(this.y, ball.y + ball.radius);
+                if (currentDistance < minDistance) {
+                    typeOfCollision = 2;
+                    minDistance = currentDistance;
+                }
+
+                currentDistance = this.getAbsoluteDistance(this.xMax, ball.x - ball.radius);
+                if (currentDistance < minDistance) {
+                    typeOfCollision = 1;
+                    minDistance = currentDistance;
+                }
+
+                currentDistance = this.getAbsoluteDistance(this.yMax, ball.y - ball.radius);
+                if (currentDistance < minDistance) {
+                    typeOfCollision = 2;
+                    minDistance = currentDistance;
+                }
+
+                return typeOfCollision;
+            }
+
         }
-        if (ball.y >= this.y && ball.y <= this.yMax) {
-            console.log('posible colision horizontal');
-        }
+
         return 0;
     }
 }
