@@ -1,16 +1,17 @@
 class Ball {
-    constructor(canvas) {
-        this.x = 150;
-        this.y = 300;
-        this.radius = 15;
+    constructor(canvas, x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.radius = 12;
         this.canvas = canvas;
+        this.color = color;
         this.ctx = this.canvas.getContext('2d');
         this.velocityX = 2;
-        this.velocityY = 1;
+        this.velocityY = 2;
     }
 
     drawBall() {
-        this.ctx.fillStyle = 'red';
+        this.ctx.fillStyle = this.color;
         this.ctx.beginPath();
         this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
         this.ctx.fill();
@@ -45,7 +46,7 @@ class Ball {
         if (this.y + this.velocityY < 15) {
             this.velocityY *= -1;
         }
-        if (this.x + this.velocityX > this.canvas.width - 15 || this.x + this.velocityX < 15) {
+        if (this.x + this.velocityX > this.canvas.width || this.x + this.velocityX < 0) {
             this.velocityX *= -1;
         }
         if (this.y + this.velocityY > this.canvas.height) {

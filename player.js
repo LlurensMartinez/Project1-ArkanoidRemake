@@ -1,12 +1,13 @@
 class Player {
-    constructor(canvas) {
-        this.x = 200;
-        this.y = 520;
+    constructor(canvas, x, y, color) {
+        this.x = x;
+        this.y = y;
         this.sizeX = 100;
         this.sizeY = 20;
-        this.xMax = this.x + 100;
-        this.yMax = this.y + 20;
+        this.xMax = x + 100;
+        this.yMax = y + 20;
         this.canvas = canvas;
+        this.color = color;
         this.ctx = this.canvas.getContext('2d');
         this.velocityX = 2;
         this.direction = 0;
@@ -21,7 +22,7 @@ class Player {
         if (this.x + this.sizeX > this.canvas.width) {
             this.x = this.canvas.width - this.sizeX;
         }
-        this.ctx.fillStyle = 'red';
+        this.ctx.fillStyle = this.color;
         this.ctx.fillRect(this.x, this.y, this.sizeX, this.sizeY);
 
     };
@@ -59,9 +60,9 @@ class Player {
     checkCollisionPlayer(ball) {
 
         if (ball.x + ball.radius >= this.x && ball.x - ball.radius <= this.xMax) {
-
+            //console.log('Colision');
             if (ball.y + ball.radius >= this.y && ball.y - ball.radius <= this.yMax) {
-                // console.log('posible colision vertical');
+                //console.log('posible colision vertical');
                 let typeOfCollision = 1;
                 let minDistance = this.getAbsoluteDistance(this.x, ball.x + ball.radius);
 

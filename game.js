@@ -18,8 +18,8 @@ class Game {
         //console.log("ha llamado loop");
 
         // Crear Bola
-        this.ball = new Ball(this.canvas);
-        this.player = new Player(this.canvas);
+        this.ball = new Ball(this.canvas, 150, 300, "blue");
+        this.player = new Player(this.canvas, 500, 500, "blue");
 
         let colors = ["red", "yellow", "blue"];
         let rows = 8;
@@ -96,7 +96,10 @@ class Game {
         blocksToRemove.forEach((blockToRemove) => {
             this.bloque.splice(blockToRemove - blocksRemoved, 1);
             blocksRemoved++;
+
         });
+
+
         // si hay algun bloque marcado para eliminar, eliminarlos del this.bloque
 
 
@@ -106,15 +109,12 @@ class Game {
             this.ball.changeDirection(collision2);
 
         }
-
+        // CONDICIONES PARA EL GAME OVER
         if (this.ball.colisionBall() === 'gameOver') {
             this.isGameOver = true;
             this.onGameOver();
         }
     }
 
-    gameOverCallBack(callback) {
-        this.onGameOver = callback;
-    }
 
 }
