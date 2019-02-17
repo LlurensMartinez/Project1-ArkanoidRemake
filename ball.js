@@ -26,13 +26,6 @@ class Ball {
     }
 
 
-
-    updateBall() {
-
-
-
-    }
-
     changeDirection(collisionType) {
         if (collisionType === 1) {
             this.velocityX *= -1;
@@ -49,11 +42,14 @@ class Ball {
         this.drawBall();
         this.x += this.velocityX;
         this.y += this.velocityY;
-        if (this.y + this.velocityY > this.canvas.height - 15 || this.y + this.velocityY < 15) {
+        if (this.y + this.velocityY < 15) {
             this.velocityY *= -1;
         }
         if (this.x + this.velocityX > this.canvas.width - 15 || this.x + this.velocityX < 15) {
             this.velocityX *= -1;
+        }
+        if (this.y + this.velocityY > this.canvas.height) {
+            return 'gameOver';
         }
     }
 }

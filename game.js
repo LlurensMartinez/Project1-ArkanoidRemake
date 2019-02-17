@@ -58,16 +58,7 @@ class Game {
 
     updateCanvas() {
         this.ball.speed();
-        //this.ball.updateBall();
         this.ball.colisionBall();
-
-        //this.player.speedPlayer();
-        // NO FUNCIONA this.player.updatePlayer();
-        //this.player.colisionPlayer();
-        //this.player.setDirection();
-
-
-
     }
 
     clearCanvas() {
@@ -81,14 +72,6 @@ class Game {
         for (let block = 0; block < this.bloque.length; block++) {
             this.bloque[block].draw();
         }
-
-
-        /* this.bloque.drawBloque();
-         this.bloque.drawBloque2();
-         this.bloque.drawBloque3();
-         this.bloque.drawBloque4();
-         this.bloque.drawBloque5();
-         */
     }
 
     gameOverCallBack(callback) {
@@ -116,6 +99,22 @@ class Game {
         });
         // si hay algun bloque marcado para eliminar, eliminarlos del this.bloque
 
+
+        // COLISION CON BARRA PLAYER
+        let collision2 = this.player.checkCollisionPlayer(this.ball);
+        if (collision2 != 0) {
+            this.ball.changeDirection(collision2);
+
+        }
+
+        if (this.ball.colisionBall() === 'gameOver') {
+            this.isGameOver = true;
+            this.onGameOver();
+        }
+    }
+
+    gameOverCallBack(callback) {
+        this.onGameOver = callback;
     }
 
 }

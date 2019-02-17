@@ -4,6 +4,8 @@ class Player {
         this.y = 520;
         this.sizeX = 100;
         this.sizeY = 20;
+        this.xMax = this.x + 100;
+        this.yMax = this.y + 20;
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
         this.velocityX = 2;
@@ -37,16 +39,12 @@ class Player {
     };
 
     rightPressed() {
-        //if (this.direction === 0) {
         this.direction = 1;
-        //}
-
     }
 
     leftPressed() {
-        //if (this.direction === 0) {
         this.direction = -1;
-        //}
+
     }
 
     cancelRightPressed() {
@@ -54,27 +52,51 @@ class Player {
     }
 
     cancelLeftPressed() {
-        //if (this.direction === -1) {
-        this.direction = 0;
-        //}
+        this.direction = 0
     }
 
-    updatePlayer() {
 
-        this.x = this.x + this.direction * this.speed;
+    checkCollisionPlayer(ball) {
 
-    }
+        if (ball.x + ball.radius >= this.x && ball.x - ball.radius <= this.xMax) {
 
-    colisionPlayer() {
+            if (ball.y + ball.radius >= this.y && ball.y - ball.radius <= this.yMax) {
+                // console.log('posible colision vertical');
+                let typeOfCollision = 1;
+                let minDistance = this.getAbsoluteDistance(this.x, ball.x + ball.radius);
 
-        // Colision con Paredes
+                let currentDistance = this.getAbsoluteDistance(this.y, ball.y + ball.radius);
+                if (currentDistance < minDistance) {
+                    typeOfCollision = 2;
+                    minDistance = currentDistance;
+                }
 
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.drawPlayer();
-        this.x += this.velocityX;
+                currentDistance = this.getAbsoluteDistance(this.xMax, ball.x - ball.radius);
+                if (currentDistance < minDistance) {
+                    typeOfCollision = 1;
+                    minDistance = currentDistance;
+                }
 
-        if (this.x + this.velocityX > this.canvas.width || this.x + this.velocityX < 0) {
-            this.velocityX *= -1;
+                currentDistance = this.getAbsoluteDistance(this.yMax, ball.y - ball.radius);
+                if (currentDistance < minDistance) {
+                    typeOfCollision = 2;
+                    minDistance = currentDistance;
+                }
+
+                return typeOfCollision;
+            }
+
         }
+
+        return 0;
     }
+
+    getAbsoluteDistance(playerPostion, ballPosition) {
+        let distance = playerPostion - ballPosition;
+        if (distance < 0) {
+            distance = distance * -1;
+        }
+        return distance;
+    }
+
 }

@@ -34,10 +34,10 @@ const main = () => {
     const buildGameScreen = () => {
         const gameScreen = buildDom(`
       <h1>Game Screen<h1>
-   <section class="game-screen">
+     <section class="game-screen">
      <canvas></canvas>
-   </section>
-   `);
+    </section>
+    `);
 
 
         const width = document.querySelector('.game-screen').offsetWidth;
@@ -83,11 +83,6 @@ const main = () => {
             }
         }
 
-        if (rightPressed) {
-            game.player.updatePlayer(+1);
-        } else if (leftPressed) {
-            game.player.updatePlayer(-1);
-        }
     };
 
     const buildGameOver = () => {
