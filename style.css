@@ -76,11 +76,14 @@ p {
 
 /* ---- components ---- */
 
-.button {
-    width: 100%;
-    background-color: blue;
-    color: #fff;
-    border: 1px solid #fff
+button {
+    width: 25%;
+    background-color: rgb(37, 36, 36);
+    color: white;
+    border: 5px solid rgb(224, 46, 115);
+    padding: 1%;
+    margin-top: 10%;
+    border-radius: 25%;
 }
 
 .button-alt {
@@ -92,16 +95,34 @@ p {
 /* ---- section ---- */
 
 .game-screen {
-    width: 100%;
-    height: 85vh;
+    width: 670px;
+    height: 600px;
     border: 1px solid black;
-    background-image: url('./images/IronHackLogo.png');
+    background-image: url('./images/ArkanoidFondo.png');
     background-position: 0 0;
-    background-size: 70% 70%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.5;
 }
 
+body {
+    background-image: url('./images/thumb-1920-595000.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
 
-/* ---- canvas ---- */
+.splash-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.gameLogo img {
+    width: 90%;
+    margin-top: 10%;
+    margin-left: 8%;
+}

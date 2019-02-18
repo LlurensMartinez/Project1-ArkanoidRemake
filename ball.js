@@ -43,10 +43,10 @@ class Ball {
         this.drawBall();
         this.x += this.velocityX;
         this.y += this.velocityY;
-        if (this.y + this.velocityY < 15) {
+        if (this.y + this.velocityY < 30) {
             this.velocityY *= -1;
         }
-        if (this.x + this.velocityX > this.canvas.width || this.x + this.velocityX < 0) {
+        if (this.x + this.velocityX > this.canvas.width - 30 || this.x + this.velocityX < 30) {
             this.velocityX *= -1;
         }
         if (this.y + this.velocityY > this.canvas.height) {

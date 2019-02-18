@@ -17,9 +17,11 @@ const main = () => {
     // Creamos SPLASH y escribimos el contenido en el main
     const buildSplashScreen = () => {
         const splashScreen = buildDom(`
-   <section class="splash-screen"></section>
-   <h1>Bienvenido al Juego</h1>
-   <button>Start</button>
+   <section class="splash-screen">
+   <div class="gameLogo">
+   <img src="./images/arkanoid-png-9.png" alt=""></img>
+   </div>
+   <button>START GAME</button>
    </section>
    `);
 

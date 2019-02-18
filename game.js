@@ -18,8 +18,8 @@ class Game {
         //console.log("ha llamado loop");
 
         // Crear Bola
-        this.ball = new Ball(this.canvas, 150, 300, "blue");
-        this.player = new Player(this.canvas, 500, 500, "blue");
+        this.ball = new Ball(this.canvas, 300, 300, "white");
+        this.player = new Player(this.canvas, 500, 550, "white");
 
         let colors = ["red", "yellow", "blue"];
         let rows = 8;
@@ -110,10 +110,12 @@ class Game {
 
         }
         // CONDICIONES PARA EL GAME OVER
-        if (this.ball.colisionBall() === 'gameOver') {
+        if (this.ball.colisionBall() === 'gameOver' || this.bloque.length === 0) {
             this.isGameOver = true;
             this.onGameOver();
         }
+
+
     }
 
 

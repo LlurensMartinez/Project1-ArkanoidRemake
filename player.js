@@ -16,27 +16,14 @@ class Player {
 
     drawPlayer() {
         this.x = this.x + 10 * this.direction;
-        if (this.x < 0) {
-            this.x = 0;
+        if (this.x < 30) {
+            this.x = 30;
         }
-        if (this.x + this.sizeX > this.canvas.width) {
-            this.x = this.canvas.width - this.sizeX;
+        if (this.x + this.sizeX > this.canvas.width - 30) {
+            this.x = this.canvas.width - 30 - this.sizeX;
         }
-        this.ctx.fillStyle = this.color;
         this.ctx.fillRect(this.x, this.y, this.sizeX, this.sizeY);
 
-    };
-
-    setDirection(direction) {
-        this.direction = direction;
-    }
-
-    checkScreen() {
-        if (this.x - this.sizeX / 2 <= 0) {
-            this.direction = 1
-        } else if (this.x + this.sizeX / 2 >= this.canvas.weight) {
-            this.direction = -1;
-        };
     };
 
     rightPressed() {
