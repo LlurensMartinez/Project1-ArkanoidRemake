@@ -90,7 +90,9 @@ const main = () => {
     const buildGameOver = () => {
         const gameOverScreen = buildDom(`
        <section class="game-over">
-         <h1>Game Over Screen</h1>
+         <<div class="gameLogo">
+         <img src="./images/arkanoid-png-9.png" alt=""></img>
+         </div>
          <button>Restart</button>
          </section>
      `);

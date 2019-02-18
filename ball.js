@@ -1,3 +1,5 @@
+'use strict'
+
 class Ball {
     constructor(canvas, x, y, color) {
         this.x = x;

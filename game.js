@@ -1,3 +1,5 @@
+'use strict'
+
 class Game {
     constructor(canvas) {
         this.canvas = canvas;
@@ -21,7 +23,7 @@ class Game {
         this.ball = new Ball(this.canvas, 300, 300, "white");
         this.player = new Player(this.canvas, 500, 550, "white");
 
-        let colors = ["red", "yellow", "blue"];
+        let colors = ["white", "white", "white"];
         let rows = 8;
         let cols = 5;
         for (let row = 0; row < rows; row++) {
@@ -110,13 +112,16 @@ class Game {
 
         }
         // CONDICIONES PARA EL GAME OVER
-        if (this.ball.colisionBall() === 'gameOver' || this.bloque.length === 0) {
+
+        if (this.ball.colisionBall() === 'gameOver') {
+            this.player.loseLive();
+            console.log(this.player.lives);
+        }
+        if (this.player.lives === 0 || this.bloque.length === 0) {
             this.isGameOver = true;
             this.onGameOver();
+
         }
 
-
     }
-
-
 }

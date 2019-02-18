@@ -1,3 +1,5 @@
+'use strict'
+
 class Player {
     constructor(canvas, x, y, color) {
         this.x = x;
@@ -12,6 +14,7 @@ class Player {
         this.velocityX = 2;
         this.direction = 0;
         this.speed = 5;
+        this.lives = 3;
     }
 
     drawPlayer() {
@@ -87,4 +90,7 @@ class Player {
         return distance;
     }
 
+    loseLive() {
+        this.lives--;
+    }
 }

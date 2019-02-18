@@ -20,6 +20,13 @@ class Bloque2 {
         this.ctx.fill();
         this.ctx.closePath();
 
+
+        //if (this.numImage === "img1"){
+        //var img1 = new Image();
+        //img1.src = "img/plat-1.png";
+        //this.ctx.drawImage(img1,this.x,this.y);
+        //}
+
     }
 
     getAbsoluteDistance(blockPostion, ballPosition) {
