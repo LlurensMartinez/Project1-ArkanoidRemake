@@ -1,23 +1,27 @@
 'use strict'
 
 class Ball {
-    constructor(canvas, x, y, color) {
+    constructor(canvas, x, y, imgBall) {
         this.x = x;
         this.y = y;
         this.radius = 12;
         this.canvas = canvas;
-        this.color = color;
+        //this.color = color;
         this.ctx = this.canvas.getContext('2d');
         this.velocityX = 2;
         this.velocityY = 2;
     }
 
     drawBall() {
-        this.ctx.fillStyle = this.color;
-        this.ctx.beginPath();
-        this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-        this.ctx.fill();
-        this.ctx.closePath();
+        //this.ctx.fillStyle = this.color;
+        //this.ctx.beginPath();
+        //this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+        //this.ctx.fill();
+        //this.ctx.closePath();
+
+        var imgBall = new Image();
+        imgBall.src = "./images/ball.png";
+        this.ctx.drawImage(imgBall, this.x, this.y);
     };
 
 

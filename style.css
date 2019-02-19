@@ -163,6 +163,7 @@ body {
     background-color: white;
     animation: pulse 8s ease infinite alternate, nudge 8s linear infinite alternate;
     border-radius: 100%;
+    border: 1.5px solid black;
 }
 
 @keyframes pulse {

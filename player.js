@@ -1,7 +1,7 @@
 'use strict'
 
 class Player {
-    constructor(canvas, x, y, color) {
+    constructor(canvas, x, y) {
         this.x = x;
         this.y = y;
         this.sizeX = 100;
@@ -9,7 +9,7 @@ class Player {
         this.xMax = x + 100;
         this.yMax = y + 20;
         this.canvas = canvas;
-        this.color = color;
+        //this.color = color;
         this.ctx = this.canvas.getContext('2d');
         this.velocityX = 2;
         this.direction = 0;
@@ -25,7 +25,11 @@ class Player {
         if (this.x + this.sizeX > this.canvas.width - 30) {
             this.x = this.canvas.width - 30 - this.sizeX;
         }
-        this.ctx.fillRect(this.x, this.y, this.sizeX, this.sizeY);
+        //this.ctx.fillRect(this.x, this.y, this.sizeX, this.sizeY);
+
+        var img1 = new Image();
+        img1.src = "./images/barra.png";
+        this.ctx.drawImage(img1, this.x, this.y);
 
     };
 

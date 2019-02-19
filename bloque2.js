@@ -1,10 +1,11 @@
 'use strict'
 
 class Bloque2 {
-    constructor(canvas, x, y, color) {
+    constructor(canvas, x, y, img) {
+        this.img = img;
         this.x = x;
         this.y = y;
-        this.color = color;
+        //this.color = color;
         this.sizeX = 100;
         this.sizeY = 20;
         this.xMax = x + 100;
@@ -14,19 +15,23 @@ class Bloque2 {
     }
 
     draw() {
-        this.ctx.beginPath();
-        this.ctx.rect(this.x, this.y, this.sizeX, this.sizeY);
-        this.ctx.fillStyle = this.color;
-        this.ctx.fill();
-        this.ctx.closePath();
+        //this.ctx.beginPath();
+        //this.ctx.rect(this.x, this.y, this.sizeX, this.sizeY);
+        //this.ctx.fillStyle = this.color;
+        //this.ctx.fill();
+        //this.ctx.closePath();
 
+        let red = new Image();
+        red.src = "./images/bloque2.png";
+        this.ctx.drawImage(red, this.x, this.y);
 
-        //if (this.numImage === "img1"){
-        //var img1 = new Image();
-        //img1.src = "img/plat-1.png";
-        //this.ctx.drawImage(img1,this.x,this.y);
-        //}
+        let blue = new Image();
+        blue.src = "./images/bloque3.png";
+        this.ctx.drawImage(blue, this.x, this.y);
 
+        let white = new Image();
+        white.src = "./images/bloque1.png";
+        this.ctx.drawImage(white, this.x, this.y);
     }
 
     getAbsoluteDistance(blockPostion, ballPosition) {

@@ -21,9 +21,9 @@ class Game {
 
         // Crear Bola
         this.ball = new Ball(this.canvas, 300, 300, "white");
-        this.player = new Player(this.canvas, 500, 550, "white");
+        this.player = new Player(this.canvas, 500, 550);
 
-        let colors = ["white", "white", "white"];
+        let imageBlocks = [this.white, this.red, this.blue];
         let rows = 8;
         let cols = 5;
         for (let row = 0; row < rows; row++) {
@@ -32,7 +32,7 @@ class Game {
                     this.canvas,
                     75 + 105 * col,
                     50 + 25 * row,
-                    colors[col % colors.length]
+                    imageBlocks[col % imageBlocks.length]
                 ));
             }
         }

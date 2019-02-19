@@ -98,7 +98,7 @@ const main = () => {
          <<div class="gameLogo">
          <img src="./images/arkanoid-png-9.png" alt=""></img>
          </div>
-         <button>Restart</button>
+         <button class="startGame">restart</button>
          </section>
      `);
 
