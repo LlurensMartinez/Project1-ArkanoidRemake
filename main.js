@@ -21,7 +21,13 @@ const main = () => {
    <div class="gameLogo">
    <img src="./images/arkanoid-png-9.png" alt=""></img>
    </div>
-   <button>START GAME</button>
+   <div class="bola"> </div>
+   <button class="startGame">START GAME</button>
+   <div class="instructions">
+   <h1>game controls</h1>
+    <p>arrow left</p>
+    <p>arrow right</p>
+   </div>
    </section>
    `);
 
@@ -35,7 +41,6 @@ const main = () => {
     // Creamos GameScreen  y escribios contenido dentro del main
     const buildGameScreen = () => {
         const gameScreen = buildDom(`
-      <h1>Game Screen<h1>
      <section class="game-screen">
      <canvas></canvas>
     </section>
