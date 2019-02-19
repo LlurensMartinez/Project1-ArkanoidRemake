@@ -30,6 +30,7 @@ h1 {
     text-transform: uppercase;
     margin-top: 10%;
     margin-bottom: 10%;
+    text-shadow: 5px 5px rgb(224, 46, 115);
 }
 
 h2 {}
@@ -39,6 +40,7 @@ h3 {}
 p {
     text-align: center;
     margin-bottom: 10%;
+    text-shadow: 3px 3px rgb(160, 155, 155);
 }
 
 
@@ -82,6 +84,7 @@ p {
 button {
     width: 25%;
     background-color: rgb(37, 36, 36);
+    opacity: 0.9;
     color: white;
     border: 5px solid rgb(224, 46, 115);
     padding: 1%;
@@ -197,11 +200,9 @@ body {
 .instructions {
     width: 60%;
     height: 250px;
-    background-color: rgb(37, 36, 36);
     color: white;
-    border: 5px solid rgb(224, 46, 115);
     padding: 1%;
-    margin-top: 10%;
+    margin-top: 5%;
     border-radius: 25%;
 }
 
