@@ -224,3 +224,7 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
+audio {
+    display: none;
+}

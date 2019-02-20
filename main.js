@@ -28,7 +28,9 @@ const main = () => {
     <p>arrow left</p>
     <p>arrow right</p>
    </div>
-   <audio src="./audio/Best Menu Music ever.mp3" autoplay loop></audio>
+   <audio controls autoplay loop>
+    <source src="./audio/BestMenuMusicever.mp3">
+    </audio>
    </section>
    `);
 
@@ -48,6 +50,9 @@ const main = () => {
      <div id="lives"></div>
      <div id="score"></div>
      </div>
+     <audio controls autoplay loop>
+    <source src="./audio/AmstradCPC.mp3">
+    </audio>
     </section>
     `);
 
