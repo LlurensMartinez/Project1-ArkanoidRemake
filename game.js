@@ -49,6 +49,10 @@ class Game {
             // Llamar a drawCanvas
             this.drawCanvas();
 
+            this.player.getLives();
+
+            this.player.getScore();
+
             if (!this.isGameOver) {
                 window.requestAnimationFrame(loop);
             }
@@ -101,6 +105,10 @@ class Game {
 
         });
 
+        if (blocksRemoved === 1) {
+            this.player.sumScore();
+        }
+
 
         // si hay algun bloque marcado para eliminar, eliminarlos del this.bloque
 
@@ -116,7 +124,7 @@ class Game {
 
         if (this.ball.isFalling) {
             this.player.loseLive();
-            console.log('Pierde vida');
+            //console.log('Pierde vida');
             this.ball = new Ball(this.canvas, 300, 300, "white");
         }
 

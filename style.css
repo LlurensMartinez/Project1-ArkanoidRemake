@@ -107,7 +107,6 @@ button:hover {
 .game-screen {
     width: 670px;
     height: 600px;
-    border: 1px solid black;
     background-image: url('./images/ArkanoidFondo.png');
     background-position: 0 0;
     background-size: 100% 100%;
@@ -212,4 +211,9 @@ body {
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
+}
+
+#lives,
+#score {
+    color: white;
 }

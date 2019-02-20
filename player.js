@@ -1,7 +1,7 @@
 'use strict'
 
 class Player {
-    constructor(canvas, x, y, lives) {
+    constructor(canvas, x, y, lives, score) {
         this.x = x;
         this.y = y;
         this.sizeX = 100;
@@ -14,6 +14,7 @@ class Player {
         this.direction = 0;
         this.speed = 5;
         this.lives = lives;
+        this.score = 0;
     }
 
     drawPlayer() {
@@ -95,5 +96,17 @@ class Player {
 
     loseLive() {
         this.lives--;
+    }
+
+    getLives() {
+        document.getElementById('lives').innerText = `LIVES: ${this.lives}`;
+    }
+
+    sumScore() {
+        this.score += 100;
+    }
+
+    getScore() {
+        document.getElementById('score').innerText = `SCORE: ${this.score}`;
     }
 }

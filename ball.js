@@ -43,10 +43,10 @@ class Ball {
 
     colisionBall() {
         // Colision con Paredes
-        if (this.y + this.velocityY < 30) {
+        if (this.y + this.velocityY < 24) {
             this.velocityY *= -1;
         }
-        if (this.x + this.velocityX > this.canvas.width - 30 || this.x + this.velocityX < 30) {
+        if (this.x + this.velocityX > this.canvas.width - 48 || this.x + this.velocityX < 24) {
             this.velocityX *= -1;
         }
 
