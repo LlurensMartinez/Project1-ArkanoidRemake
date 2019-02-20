@@ -21,9 +21,9 @@ class Game {
 
         // Crear Bola
         this.ball = new Ball(this.canvas, 300, 300, "white");
-        this.player = new Player(this.canvas, 500, 550);
+        this.player = new Player(this.canvas, 500, 550, 3);
 
-        let imageBlocks = [this.white, this.red, this.blue];
+        let imageBlocks = ['image1', 'image2', 'image3'];
         let rows = 8;
         let cols = 5;
         for (let row = 0; row < rows; row++) {
@@ -60,11 +60,10 @@ class Game {
 
     updateCanvas() {
         this.ball.speed();
-        this.ball.colisionBall();
     }
 
     clearCanvas() {
-        this.ctx.clearRect(0, 0, this.x, this.y);
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
     drawCanvas() {
@@ -82,6 +81,7 @@ class Game {
 
     checkAllCollisions() {
         //this.player.checkScreen();
+        this.ball.colisionBall();
         let blocksToRemove = [];
         this.bloque.forEach((bloque, index) => {
             let collision = bloque.checkCollision(this.ball);
@@ -113,10 +113,13 @@ class Game {
         }
         // CONDICIONES PARA EL GAME OVER
 
-        if (this.ball.colisionBall() === 'gameOver') {
+
+        if (this.ball.isFalling) {
             this.player.loseLive();
-            console.log(this.player.lives);
+            console.log('Pierde vida');
+            this.ball = new Ball(this.canvas, 300, 300, "white");
         }
+
         if (this.player.lives === 0 || this.bloque.length === 0) {
             this.isGameOver = true;
             this.onGameOver();

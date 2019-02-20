@@ -8,8 +8,10 @@ class Ball {
         this.canvas = canvas;
         //this.color = color;
         this.ctx = this.canvas.getContext('2d');
-        this.velocityX = 2;
-        this.velocityY = 2;
+        this.velocityX = 4;
+        this.velocityY = 4;
+        this.isFalling = false;
+
     }
 
     drawBall() {
@@ -26,10 +28,8 @@ class Ball {
 
 
     speed() {
-        this.drawBall();
         this.x += this.velocityX;
         this.y += this.velocityY;
-
     }
 
 
@@ -42,21 +42,19 @@ class Ball {
     }
 
     colisionBall() {
-
         // Colision con Paredes
-
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.drawBall();
-        this.x += this.velocityX;
-        this.y += this.velocityY;
         if (this.y + this.velocityY < 30) {
             this.velocityY *= -1;
         }
         if (this.x + this.velocityX > this.canvas.width - 30 || this.x + this.velocityX < 30) {
             this.velocityX *= -1;
         }
-        if (this.y + this.velocityY > this.canvas.height) {
-            return 'gameOver';
+
+        const collisonBottom = this.y + this.velocityY > this.canvas.height;
+        if (collisonBottom) {
+            this.isFalling = true;
+        } else {
+            this.isFalling = false;
         }
     }
 }

@@ -1,12 +1,11 @@
 'use strict'
 
 class Player {
-    constructor(canvas, x, y) {
+    constructor(canvas, x, y, lives) {
         this.x = x;
         this.y = y;
         this.sizeX = 100;
         this.sizeY = 20;
-        this.xMax = x + 100;
         this.yMax = y + 20;
         this.canvas = canvas;
         //this.color = color;
@@ -14,7 +13,7 @@ class Player {
         this.velocityX = 2;
         this.direction = 0;
         this.speed = 5;
-        this.lives = 3;
+        this.lives = lives;
     }
 
     drawPlayer() {
@@ -53,7 +52,7 @@ class Player {
 
     checkCollisionPlayer(ball) {
 
-        if (ball.x + ball.radius >= this.x && ball.x - ball.radius <= this.xMax) {
+        if (ball.x + ball.radius >= this.x && ball.x - ball.radius <= this.x + this.sizeX) {
             //console.log('Colision');
             if (ball.y + ball.radius >= this.y && ball.y - ball.radius <= this.yMax) {
                 //console.log('posible colision vertical');

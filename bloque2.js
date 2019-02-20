@@ -12,6 +12,12 @@ class Bloque2 {
         this.yMax = y + 20;
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
+        this.image1 = new Image();
+        this.image1.src = "./images/bloque1.png";
+        this.image2 = new Image();
+        this.image2.src = "./images/bloque2.png";
+        this.image3 = new Image();
+        this.image3.src = "./images/bloque3.png";
     }
 
     draw() {
@@ -20,18 +26,15 @@ class Bloque2 {
         //this.ctx.fillStyle = this.color;
         //this.ctx.fill();
         //this.ctx.closePath();
-
-        let red = new Image();
-        red.src = "./images/bloque2.png";
-        this.ctx.drawImage(red, this.x, this.y);
-
-        let blue = new Image();
-        blue.src = "./images/bloque3.png";
-        this.ctx.drawImage(blue, this.x, this.y);
-
-        let white = new Image();
-        white.src = "./images/bloque1.png";
-        this.ctx.drawImage(white, this.x, this.y);
+        if (this.img === 'image1') {
+            this.ctx.drawImage(this.image1, this.x, this.y);
+        }
+        if (this.img === 'image2') {
+            this.ctx.drawImage(this.image2, this.x, this.y);
+        }
+        if (this.img === 'image3') {
+            this.ctx.drawImage(this.image3, this.x, this.y);
+        }
     }
 
     getAbsoluteDistance(blockPostion, ballPosition) {
