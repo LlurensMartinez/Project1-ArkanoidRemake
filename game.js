@@ -20,11 +20,11 @@ class Game {
         //console.log("ha llamado loop");
 
         // Crear Bola
-        this.ball = new Ball(this.canvas, 300, 300, "white");
-        this.player = new Player(this.canvas, 500, 550, 3);
+        this.ball = new Ball(this.canvas, 200, 400, "white");
+        this.player = new Player(this.canvas, 300, 550, 3);
 
         let imageBlocks = ['image1', 'image2', 'image3'];
-        let rows = 8;
+        let rows = 10;
         let cols = 5;
         for (let row = 0; row < rows; row++) {
             for (let col = 0; col < cols; col++) {

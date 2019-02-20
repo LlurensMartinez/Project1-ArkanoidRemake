@@ -28,6 +28,7 @@ const main = () => {
     <p>arrow left</p>
     <p>arrow right</p>
    </div>
+   <audio src="./audio/Best Menu Music ever.mp3" autoplay loop></audio>
    </section>
    `);
 
@@ -43,8 +44,10 @@ const main = () => {
         const gameScreen = buildDom(`
      <section class="game-screen">
      <canvas></canvas>
+     <div class="livesScore">
      <div id="lives"></div>
      <div id="score"></div>
+     </div>
     </section>
     `);
 

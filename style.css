@@ -105,10 +105,13 @@ button:hover {
 /* ---- section ---- */
 
 .game-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 5%;
     width: 670px;
     height: 600px;
     background-image: url('./images/ArkanoidFondo.png');
-    background-position: 0 0;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -117,7 +120,6 @@ button:hover {
 body {
     background-image: url('./images/thumb-1920-595000.jpg');
     background-repeat: no-repeat;
-    background-position: center;
     width: 100%;
     height: 100%;
 }
@@ -207,7 +209,6 @@ body {
 
 .game-over {
     display: flex;
-    justify-content: center;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
@@ -216,4 +217,10 @@ body {
 #lives,
 #score {
     color: white;
+    text-shadow: 2px 2px black;
+}
+
+.livesScore {
+    display: flex;
+    justify-content: space-between;
 }
