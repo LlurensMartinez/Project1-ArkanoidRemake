@@ -105,10 +105,11 @@ const main = () => {
     const buildGameOver = () => {
         const gameOverScreen = buildDom(`
        <section class="game-over">
-         <<div class="gameLogo">
+         <div class="gameLogo">
          <img src="./images/arkanoid-png-9.png" alt=""></img>
          </div>
          <button class="startGame">restart</button>
+         <div class="divGameOver"> <p class="textGameOver"> game over <p></div>
          </section>
      `);
 

@@ -25,7 +25,8 @@ body {
     line-height: 147%;
 }
 
-h1 {
+h1,
+.textGameOver {
     text-align: center;
     text-transform: uppercase;
     margin-top: 10%;
@@ -227,4 +228,13 @@ body {
 
 audio {
     display: none;
+}
+
+.textGameOver {
+    font-size: 4em;
+    color: white;
+}
+
+.divGameOver {
+    margin-top: 10%;
 }
